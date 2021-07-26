@@ -40,42 +40,33 @@ public class LinkedList {
 	            tail = newNode;    
 	        }    
 	        else { 
-	              newNode.next=head;    
-	            //newNode will become new tail of the list    
-	            head = newNode;    
+	        	tail.next = newNode;
+	            tail = newNode;  
 	        }    
 	    }   
-	  public void pop() {
-
-	       
-	        if(head == null) {
-	            System.out.println("List is empty");
-	            return;
-	        }
-	        else {
-	            if(head != tail ) {
-	                Node current = head;
-	                while(current.next != tail) { 
-	                    current = current.next;
-	                }
-	                tail = current;
-	                tail.next = null;
+	  public void insert(int value){
+	        Node newNode = new Node(value);
+	        Node temp = head;
+	        boolean x = true;
+	        while(x) {
+	            if(temp.data == 30){
+	                newNode.next = temp.next;
+	                temp.next=newNode;
+	                break;
 	            }
-	            else {
-	                head = tail = null;
-	            }
+	            temp = temp.next;
+	            x =true;
 	        }
 	    }
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
-		System.out.println("Before deleting..");
-		list.addnode(70);
+		
 		list.addnode(56);
 		list.addnode(30);
+		list.addnode(70);
+		list.insert(40);
 		list.display(); 
-		list.pop();
-		System.out.println("After deleting..");
-        list.display();
+		
 	}
 	
 }
