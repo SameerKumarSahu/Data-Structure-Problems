@@ -45,24 +45,23 @@ public class LinkedList {
 	            tail = newNode;    
 	        }    
 	    }   
-	  public void insert(int position,int value){
-	        Node newNode = new Node(value);
-	        Node temp = head;
-	        for (int i=1; i < position-1; i++) {
-	            temp = temp.next;
+	  public void pop(){
+	        Node current = head;
+	        if(current == head){
+	            head = head.next;
+	            current = head;
 	        }
-	        newNode.next = temp.next;
-	        temp.next=newNode;
-
-	        System.out.println(value +" Added sucessfully between 56 and 70");
 	    }
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
-		
-		list.addnode(56);
+		System.out.println("Before deleting..");
 		list.addnode(70);
-		list.insert(1,30);
-		list.display();    
+		list.addnode(30);
+		list.addnode(56);
+		list.display(); 
+		list.pop();
+		System.out.println("After deleting..");
+        list.display();
 	}
 	
 }
