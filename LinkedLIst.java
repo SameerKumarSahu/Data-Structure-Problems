@@ -31,20 +31,23 @@ public class LinkedList {
 	        }    
 	        System.out.println();    
 	    }    
-	  public void addToBegin(int x){
+	  public void addToEnd(int x){
+	        Node node = new Node(x);
 	        if (head == null){
-	            head = new Node(x);
+	            this.head = node;
 	        }else{
-	            Node temp = new Node(x);
-	            temp.next = head;
-	            head = temp;
+	            Node temp = head;
+	            while (temp.next != null){
+	                temp = temp.next;
+	            }
+	            temp.next = node;
 	        }
-	     }
+	    }
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
-		list.addToBegin(70);
-		list.addToBegin(30);
-		list.addToBegin(56);
+		list.addToEnd(56);
+		list.addToEnd(30);
+		list.addToEnd(70);
 		list.display();    
 	}
 	
